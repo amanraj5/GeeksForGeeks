@@ -17,17 +17,7 @@ public:
 	string printLargest(vector<string> &arr) {
 	    // code here
 	    sort(arr.begin(),arr.end(),compare);
-	   // string ans1="";string ans2="";
-	   // ans1=arr[0];
-	   // ans2=arr[0];
 	    string ans="";
-	   // for(int i=1;i<arr.size();i++){
-	   //     string s1=ans1.append(arr[i]);
-	   //     string s2=arr[i].append(ans2);
-	   //     ans=max(s1,s2);
-	   //     ans1=ans;
-	   //     ans2=ans;
-	   // }
 	   
 	   for(auto it:arr){
 	       ans+=it;
