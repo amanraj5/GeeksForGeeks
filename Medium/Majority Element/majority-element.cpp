@@ -15,16 +15,24 @@ class Solution{
     // size: size of input array
     int majorityElement(int a[], int size)
     {
-        
         // your code here
-        if(size==1) return a[0];
-        int largest=*max_element(a,a+size);
-        int hsh[largest+1]={0};
+        // Moore voting Algorithm
+        //  NOTE: This algorithm will always give majority element if exists.
+        int count=0;
+        int element;
         for(int i=0;i<size;i++){
-            hsh[a[i]]++;
+            if(count==0){
+                count=1;
+                element=a[i];
+            }
+            else if (element==a[i]) count++;
+            else count--;
         }
-        for(int i=0;i<largest+1;i++){
-            if(hsh[i]>size/2) return i;
+        
+        int cnt=0;
+        for(int i=0;i<size;i++){
+            if(element==a[i]) cnt++;
+            if(cnt>size/2) return element;
         }
         return -1;
     }
